@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block corpo %}
+
+ <h1>Modalidades de Ensino</h1>
+
+    <ul>
+      {% for modalidade in all_modalidade %}
+          <li>
+            <a href="/excluirmodalidade/{{ modalidade.id }}">
+                {{ modalidade.descricao }}
+            </a>
+          </li>
+          {% empty %}
+            <li>Sem itens na listagens</li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}
