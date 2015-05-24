@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Listar</title>
-</head>
-<body>
-    {{  }}
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block menu %}
+{% block corpo %}
+
+ <h1>Alunos Cadastrados</h1>
+
+    <ul>
+      {% for aluno in all_alunos %}
+          <li>
+            <a href="/excluiraluno/{{ aluno.id }}">
+                {{ aluno.nomeAluno }}</a>
+
+          </li>
+          {% empty %}
+            <li>Sem itens na listagens</li>
+      {% endfor %}
+    </ul>
+
+
+{% endblock %}
+{% endblock %}

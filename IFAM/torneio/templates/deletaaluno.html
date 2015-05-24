@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block corpo %}
+    <h1>Excluir Aluno</h1>
+
+     <h2>{{ all_aluno.descricao }}</h2>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit">Excluir</button> ou <a href="/">Cancelar</a>
+
+    </form>
+
+{% endblock %}

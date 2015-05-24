@@ -14,17 +14,30 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import include, url, patterns
+from django.conf.urls.static import static
 from django.contrib import admin
+from django.conf import settings
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'torneio.views.index'),
+    url(r'^$', 'torneio.views.menu'),
     url(r'^adicionarmodalidade/$','torneio.views.adicionarModalidade'),
     url(r'^excluirmodalidade/(?P<nr_modalidade>\d+)/$','torneio.views.excluirModalidade'),
     url(r'^adicionarturno/$','torneio.views.adicionarTurno'),
     url(r'^adicionarcurso/$','torneio.views.adicionarCurso'),
     url(r'^adicionaraluno/$','torneio.views.adicionarAluno'),
-    url(r'^menu/$','torneio.views.menu'),
-]
+    url(r'^listarmodalidade/$','torneio.views.listarModalidades'),
+    url(r'^listaraluno/$','torneio.views.listarAlunos'),
+    url(r'^excluiraluno/(?P<nr_aluno>\d+)/$','torneio.views.excluirAluno'),
+
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+                            (r'^media/(?P<path>.*)$','django.views.static.serve',
+         {'document_root':settings.MEDIA_ROOT}),)

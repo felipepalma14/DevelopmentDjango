@@ -3,13 +3,29 @@ from django.shortcuts import render, render_to_response, redirect, get_object_or
 
 # Create your views here.
 from torneio.forms import ModalidadeForm, TurnoCursoForm, CursoForm, AlunoForm
-from torneio.models import Modalidade
+from torneio.models import Modalidade, Aluno
 
 
+def menu(request):
+    return render(request,"menuDropDown.html",{})
 
-def index(request):
+def listarAlunos(request):
     #return HttpResponse('Hello Word!!')
-    return render(request,'menu.html',{})
+    all_alunos = Aluno.objects.all()
+    return render(request,"listaaluno.html",{'all_alunos': all_alunos})
+
+def excluirAluno(request,nr_aluno):
+    all_alunos = Aluno.objects.all()
+    if request.method == 'POST':
+        all_alunos.delete()
+        request('/')
+    return render(request,'deletaaluno.html',{'all_alunos':all_alunos})
+def listarModalidades(request):
+    #return HttpResponse('Hello Word!!')
+    all_modalidade = Modalidade.objects.all()
+    return render(request,"listamodalidade.html",{'all_modalidade': all_modalidade})
+
+
 
 def adicionarModalidade(request):
     form = ModalidadeForm(request.POST or None,request.FILES or None)
@@ -46,8 +62,3 @@ def adicionarAluno(request):
         form.save()
         return redirect('/')
     return render(request,"adicionaaluno.html",{'form':form})
-
-
-def menu(request):
-    all_modalidade = Modalidade.objects.all()
-    return render(request,"listamodalidade.html",{'all_modalidade': all_modalidade})
