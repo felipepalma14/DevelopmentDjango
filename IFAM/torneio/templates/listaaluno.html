@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block menu %}
+
 {% block corpo %}
 
  <h1>Alunos Cadastrados</h1>
@@ -8,8 +8,8 @@
     <ul>
       {% for aluno in all_alunos %}
           <li>
-            <a href="/excluiraluno/{{ aluno.id }}">
-                {{ aluno.nomeAluno }}</a>
+            <a href="/excluiraluno/{{ aluno.id }}"><img src="{{ MEDIA_URL }}/image/trash.ico"></a>
+                {{ aluno.nome }} - {{ aluno.curso }} - {{ aluno.turno }}
 
           </li>
           {% empty %}
@@ -18,5 +18,4 @@
     </ul>
 
 
-{% endblock %}
 {% endblock %}

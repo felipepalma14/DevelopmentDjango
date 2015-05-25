@@ -23,15 +23,20 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'torneio.views.menu'),
+    # URL`s ADD
     url(r'^adicionarmodalidade/$','torneio.views.adicionarModalidade'),
-    url(r'^excluirmodalidade/(?P<nr_modalidade>\d+)/$','torneio.views.excluirModalidade'),
     url(r'^adicionarturno/$','torneio.views.adicionarTurno'),
     url(r'^adicionarcurso/$','torneio.views.adicionarCurso'),
     url(r'^adicionaraluno/$','torneio.views.adicionarAluno'),
+
+    url(r'^listarcursos/$','torneio.views.listarCursos'),
     url(r'^listarmodalidade/$','torneio.views.listarModalidades'),
     url(r'^listaraluno/$','torneio.views.listarAlunos'),
-    url(r'^excluiraluno/(?P<nr_aluno>\d+)/$','torneio.views.excluirAluno'),
+    url(r'^listarturnos/$','torneio.views.listarTurno'),
 
+    url(r'^excluirmodalidade/(?P<nr_modalidade>\d+)/$','torneio.views.excluirModalidade'),
+    url(r'^excluiraluno/(?P<nr_aluno>\d+)/$','torneio.views.excluirAluno'),
+    url(r'^excluirturno/(?P<nr_turno>\d+)/$','torneio.views.excluirTurno'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

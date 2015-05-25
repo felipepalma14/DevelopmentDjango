@@ -10,9 +10,9 @@
     <ul>
       {% for modalidade in all_modalidade %}
           <li>
-            <a href="/excluirmodalidade/{{ modalidade.id }}">
+            <a href="/excluirmodalidade/{{ modalidade.id }}"><img src="{{ MEDIA_URL }}image/trash.ico" title="Deletar"/></a>
                 {{ modalidade.descricao }}
-            </a>
+
           </li>
           {% empty %}
             <li>Sem itens na listagens</li>

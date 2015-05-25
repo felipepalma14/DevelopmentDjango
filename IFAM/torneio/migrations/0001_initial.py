@@ -14,43 +14,48 @@ class Migration(migrations.Migration):
             name='Aluno',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nomeAluno', models.TextField()),
+                ('nome', models.TextField()),
             ],
         ),
         migrations.CreateModel(
             name='Curso',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('descricaoCurso', models.CharField(max_length=100)),
+                ('descricao', models.CharField(max_length=100)),
             ],
         ),
         migrations.CreateModel(
             name='Modalidade',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('descricaoModalidade', models.CharField(max_length=100)),
+                ('descricao', models.CharField(max_length=100)),
             ],
         ),
         migrations.CreateModel(
-            name='TurnoCurso',
+            name='Turno',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('descricaoTurno', models.CharField(max_length=100)),
+                ('descricao', models.CharField(max_length=100)),
             ],
         ),
         migrations.AddField(
             model_name='curso',
-            name='cursoModalidade',
+            name='modalidade',
             field=models.ForeignKey(to='torneio.Modalidade'),
         ),
         migrations.AddField(
             model_name='curso',
-            name='cursoTurno',
-            field=models.ForeignKey(to='torneio.TurnoCurso'),
+            name='turno',
+            field=models.ForeignKey(to='torneio.Turno'),
         ),
         migrations.AddField(
             model_name='aluno',
-            name='cursoAluno',
+            name='curso',
             field=models.ForeignKey(to='torneio.Curso'),
+        ),
+        migrations.AddField(
+            model_name='aluno',
+            name='turno',
+            field=models.ForeignKey(to='torneio.Turno'),
         ),
     ]

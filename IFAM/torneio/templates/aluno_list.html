@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+
+{% block corpo %}
+    <h1> Alunos </h1>
+    <ul>
+        {% for alunos in object_list %}
+            <li class="aluno"> {{ alunos }} </li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}

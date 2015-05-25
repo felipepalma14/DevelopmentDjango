@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django import forms
-from torneio.models import Modalidade, TurnoCurso, Curso, Aluno
+from torneio.models import Modalidade, Turno, Curso, Aluno
 
 
 class ModalidadeForm(forms.ModelForm):
@@ -14,22 +14,25 @@ class ModalidadeForm(forms.ModelForm):
 class TurnoCursoForm(forms.ModelForm):
     descricao =forms.CharField(label=u'Descrição',max_length=100)
     class Meta:
-        model = TurnoCurso
+        model = Turno
         fields = ('descricao',)
 
 
 class CursoForm(forms.ModelForm):
     descricao = forms.CharField(label= u'Descrição',max_length=100)
-    cursoModalidade = forms.ModelChoiceField(label='Modalidade',queryset= Modalidade.objects.all())
-    cursoTurno = forms.ModelChoiceField(label='Turno',queryset= TurnoCurso.objects.all())
+    modalidade = forms.ModelChoiceField(label='Modalidade',queryset= Modalidade.objects.all())
+
     class Meta:
         model = Curso
-        fields = ('descricao','cursoModalidade','cursoTurno')
+        fields = ('descricao','modalidade',)
 
 class AlunoForm(forms.ModelForm):
-    nomeAluno = forms.CharField(label='Aluno',max_length=100)
-    cursoAluno = forms.ModelChoiceField(label='Curso',queryset= Curso.objects.all())
+    nome = forms.CharField(label='Aluno',max_length=100)
+    curso = forms.ModelChoiceField(label='Curso',queryset= Curso.objects.all())
+    turno = forms.ModelChoiceField(label='Turno',queryset= Turno.objects.all())
+    
+
     class Meta:
         model = Aluno
-        fields = ('nomeAluno','cursoAluno')
+        fields = ('nome','curso','turno')
 

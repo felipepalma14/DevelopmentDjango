@@ -13,7 +13,7 @@ class Modalidade(models.Model):
     descricao = models.CharField(max_length=100)
 
 
-class TurnoCurso(models.Model):
+class Turno(models.Model):
 
     def __unicode__(self):
         return u'{0}'.format(self.descricao)
@@ -29,8 +29,8 @@ class Curso(models.Model):
         return u'{0}'.format(self.descricao)
 
     descricao = models.CharField(max_length=100)
-    cursoModalidade = models.ForeignKey(Modalidade)
-    cursoTurno = models.ForeignKey(TurnoCurso) ## a chave estrangeira eh o nome da class in lower-case for default
+    modalidade = models.ForeignKey(Modalidade)
+    ## a chave estrangeira eh o nome da class in lower-case for default
                                              ## eh possivel criar uma variavel de referencia variave_ref = 'nome_ref'
 
 
@@ -38,8 +38,8 @@ class Curso(models.Model):
 class Aluno(models.Model):
 
     def __unicode__(self):
-        return u'{0}'.format(self.cursoAluno)
+        return u'{0}'.format(self.nome)
 
-    nomeAluno = models.TextField()
-    cursoAluno = models.ForeignKey(Curso)
-
+    nome = models.TextField()
+    curso = models.ForeignKey(Curso)
+    turno = models.ForeignKey(Turno)

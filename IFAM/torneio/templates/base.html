@@ -9,9 +9,44 @@
     <link rel="stylesheet" type="text/css"  href="{% static "estilo.css" %}" />
     {% endblock %}
 
+<nav >
+  <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a>Molidade</a>
+            <ul>
+                <li><a href="/adicionarmodalidade">+ Modalidade</a> </li>
+                <li><a href="/listarmodalidade" > Listar Modalidades</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a>Turno</a>
+            <ul>
+                <li><a href="/adicionarturno"> + Turno</a></li>
+                <li><a href="/listarturnos">Listar Turnos</a> </li>
+            </ul>
+        </li>
+        <li><a>Cursos</a>
+            <ul>
+                <li><a href="/adicionarcurso">+ Curso</a></li>
+                <li><a href="/listarcursos"> Listar Cursos</a> </li>
+            </ul>
+        </li>
+        <li><a>Aluno</a>
+            <ul>
+                <li><a href="/adicionaraluno">+ Aluno</a></li>
+                <li><a href="/listaraluno">Listar Alunos</a></li>
+
+            </ul>
+        </li>
+        <li><a href="#">Links</a></li>
+        <li><a href="https://github.com/felipepalma14/">Contato</a></li>
+</ul>
+</nav>
 
 </head>
 <body>
+    <br><br>
     {% block corpo %}
         <!-- Sessao principal -->
 

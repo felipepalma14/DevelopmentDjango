@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+
+
+{% block corpo %}
+
+
+ <h1>Cursos</h1>
+
+    <ul>
+      {% for curso in all_cursos %}
+          <li>
+            <a href="/"><img src="{{ MEDIA_URL }}image/trash.ico" title="Deletar"/></a>
+                {{ curso.descricao }}
+
+          </li>
+          {% empty %}
+            <li>Sem itens na listagens</li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}

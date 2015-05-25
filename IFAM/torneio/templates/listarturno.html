@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block corpo %}
+    <h1>Turnos</h1>
+
+    <ul>
+        {% for turno in all_turnos %}
+            <li>
+            <a href="/excluirturno/{{ turno.id }}"><img src="{{ MEDIA_URL }}/image/trash.ico"></a>
+                {{ turno.descricao }}
+
+          </li>
+          {% empty %}
+            <li>Sem itens na listagens</li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}
