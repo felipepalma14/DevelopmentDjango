@@ -7,14 +7,25 @@
     <title>Torneio</title>
         {% load staticfiles %}
     <link rel="stylesheet" type="text/css"  href="{% static "estilo.css" %}" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     {% endblock %}
 
-<nav >
+
+<nav class="navbar navbar-default">
   <ul class="menu">
         <li><a href="/">Home</a></li>
-        <li><a>Molidade</a>
+        <li><a>Molidade de Ensino</a>
             <ul>
-                <li><a href="/adicionarmodalidade">+ Modalidade</a> </li>
+                <li><a href="/adicionarmodalidade"> + Modalidade</a> </li>
                 <li><a href="/listarmodalidade" > Listar Modalidades</a></li>
             </ul>
         </li>
@@ -39,15 +50,30 @@
 
             </ul>
         </li>
-        <li><a href="#">Links</a></li>
+        <li><a href="#">Links</a>
+            <ul>
+                <li><a href="http://www.ifam.edu.br/portal/">IFAM</a></li>
+            </ul>
+        </li>
+
         <li><a href="https://github.com/felipepalma14/">Contato</a></li>
 </ul>
 </nav>
 
 </head>
 <body>
-    <br><br>
+
+    <!--style="width:204px;height:258px;"> -->
+    <!--<img src="{{ MEDIA_URL }}/image/trash.ico"> -->
+    
+    
     {% block corpo %}
+    <img src="{{ MEDIA_URL }}/image/copaifam.jpg" alt="Copa IFAM">
+    <p><i> Copa IFAM</i></p>
+    
+    <p><i>Tem como intuito da CopaIFAM eh isentivar os alunos do CMC de todas as modalidades</i></p>
+    <p><i>de ensino do Instituto Federal do Amazonas a praticar esportes.
+    </i></p>
         <!-- Sessao principal -->
 
     {% endblock %}

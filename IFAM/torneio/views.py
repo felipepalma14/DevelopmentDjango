@@ -9,7 +9,8 @@ from torneio.models import Modalidade, Aluno, Curso, Turno
 
 
 def menu(request):
-    return render(request,"base.html",{})
+    return render_to_response("base.html",{'MEDIA_URL':settings.MEDIA_URL},
+        context_instance = RequestContext(request))
 
 def listarAlunos(request):
 
