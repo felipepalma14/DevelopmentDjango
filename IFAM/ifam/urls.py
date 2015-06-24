@@ -21,7 +21,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    #url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'torneio.views.menu'),
     # URL`s ADD
     url(r'^adicionarmodalidade/$','torneio.views.adicionarModalidade'),
