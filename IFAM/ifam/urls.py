@@ -22,6 +22,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/$','torneio.views.login_user'),
     url(r'^$', 'torneio.views.menu'),
     # URL`s ADD
     url(r'^adicionarmodalidade/$','torneio.views.adicionarModalidade'),

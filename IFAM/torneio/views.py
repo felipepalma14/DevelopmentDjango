@@ -1,6 +1,7 @@
-from django.http import HttpResponse
-from django.shortcuts import render, render_to_response, redirect, get_object_or_404
 
+from django.http import HttpResponse,HttpResponseRedirect
+from django.shortcuts import render, render_to_response, redirect, get_object_or_404
+from django.contrib.auth import authenticate,login
 # Create your views here.
 from django.template import RequestContext
 from ifam import settings
@@ -92,3 +93,28 @@ def adicionarAluno(request):
         form.save()
         return redirect('/listaraluno')
     return render(request,"adicionaaluno.html",{'form':form})
+
+
+def login_user(request):
+    state = "Please log in below"
+    username = ''
+    password = ''
+
+    if request.POST:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username,password=password)
+
+        if user is not None:
+            if user.is_active:
+                login(request,user)
+                state = "Logou!!!"
+                return HttpResponseRedirect('/home')
+            else:
+                state = "conta nao ativa"
+                return HttpResponseRedirect('/')
+        else:
+            state = "login ou senha invalido"
+
+    return render_to_response('autentica.html',{'state':state},context_instance = RequestContext(request))

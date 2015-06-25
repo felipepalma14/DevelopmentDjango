@@ -4,8 +4,10 @@
     {% block cabecalho %}
     <meta charset="UTF-8">
 
+
     <title>Torneio</title>
         {% load staticfiles %}
+	    
     <link rel="stylesheet" type="text/css"  href="{% static "estilo.css" %}" />
 
     <!-- Latest compiled and minified CSS -->
@@ -15,7 +17,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+
 
     {% endblock %}
 
@@ -68,7 +72,7 @@
     
     
     {% block corpo %}
-    <img src="{{ MEDIA_URL }}/image/copaifam.jpg" alt="Copa IFAM">
+    <img src="{{ MEDIA_URL }}/image/copaifam.jpg" >
     <p><i> Copa IFAM</i></p>
     
     <p><i>CopinhaSeries tem como intuito incentivar </i></p>
