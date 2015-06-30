@@ -24,9 +24,10 @@
     {% endblock %}
 
 
+
 <nav class="navbar navbar-default">
-  <ul class="menu">
-        <li><a href="/">Home</a></li>
+    <ul class="menu">
+        <li><a href="/home">Home</a></li>
         <li><a>Molidade de Ensino</a>
             <ul>
                 <li><a href="/adicionarmodalidade"> + Modalidade</a> </li>
@@ -36,10 +37,10 @@
 
         <li>
             <a>Turno</a>
-            <ul>
-                <li><a href="/adicionarturno"> + Turno</a></li>
-                <li><a href="/listarturnos">Listar Turnos</a> </li>
-            </ul>
+                <ul>
+                    <li><a href="/adicionarturno"> + Turno</a></li>
+                    <li><a href="/listarturnos">Listar Turnos</a> </li>
+                </ul>
         </li>
         <li><a>Cursos</a>
             <ul>
@@ -61,11 +62,22 @@
         </li>
 
         <li><a href="https://github.com/felipepalma14/">Contato</a></li>
-</ul>
+
+        </li>
+    </ul>
+
+   
+
 </nav>
 
+
+
+       
+
 </head>
+
 <body>
+
 
     <!--style="width:204px;height:258px;"> -->
     <!--<img src="{{ MEDIA_URL }}/image/trash.ico"> -->
@@ -73,13 +85,16 @@
     
     {% block corpo %}
     <img src="{{ MEDIA_URL }}/image/copaifam.jpg" >
-    <p><i> Copa IFAM</i></p>
+    <p><i> Copa </i></p>
     
     <p><i>CopinhaSeries tem como intuito incentivar </i></p>
     <p><i>a pratica esportes atraves de competicoes.
     </i></p>
         <!-- Sessao principal -->
 
+    <div>
+      
+    </div>
     {% endblock %}
 </body>
 </html>

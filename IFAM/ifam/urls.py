@@ -22,8 +22,11 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^login/$','torneio.views.login_user'),
-    url(r'^$', 'torneio.views.menu'),
+    url(r'^home/$', 'torneio.views.menu'),
+    url(r'^login/$', 'torneio.views.login_user'),
+    url(r'^logout/$', 'torneio.views.logout'),
+    #url(r'^$', 'torneio.views.login'),
+    
     # URL`s ADD
     url(r'^adicionarmodalidade/$','torneio.views.adicionarModalidade'),
     url(r'^adicionarturno/$','torneio.views.adicionarTurno'),
@@ -38,6 +41,8 @@ urlpatterns = [
     url(r'^excluirmodalidade/(?P<nr_modalidade>\d+)/$','torneio.views.excluirModalidade'),
     url(r'^excluiraluno/(?P<nr_aluno>\d+)/$','torneio.views.excluirAluno'),
     url(r'^excluirturno/(?P<nr_turno>\d+)/$','torneio.views.excluirTurno'),
+    url(r'^excluircurso/(?P<nr_curso>\d+)/$','torneio.views.excluirCurso'),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
